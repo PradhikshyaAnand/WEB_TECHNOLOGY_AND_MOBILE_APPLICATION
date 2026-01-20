@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: darkred;
+    font-weight: bold;
+    text-decoration: none;
+}

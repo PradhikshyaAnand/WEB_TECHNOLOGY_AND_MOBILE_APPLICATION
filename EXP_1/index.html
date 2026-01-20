@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chennai Map</title>
+
+    <!-- Embedded CSS -->
+    <style>
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+        img {
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
+        iframe {
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body style="background-color:#f0f8ff;"> <!-- Inline CSS -->
+
+    <h1>Chennai City Map</h1>
+
+    <p style="text-align:center; color:green;">
+        Click hotspots to view places. Use links for more information.
+    </p>
+
+    <!-- HOTSPOT IMAGE -->
+    <img src="Chennai_map.png"
+         usemap="#chennaiMap"
+         width="600"
+         alt="Chennai Map">
+
+    <!-- IMAGE MAP HOTSPOTS -->
+    <map name="chennaiMap">
+        <area shape="rect"
+              coords="0,0,600,400"
+              href="https://en.wikipedia.org/wiki/Chennai"
+              target="frame1"
+              alt="Chennai">
+
+        <area shape="circle"
+              coords="300,200,50"
+              href="https://en.wikipedia.org/wiki/Marina_Beach"
+              target="frame1"
+              alt="Marina Beach">
+    </map>
+
+    <br>
+
+    <!-- FRAME -->
+    <iframe name="frame1"
+            src="https://www.google.com/maps?q=Chennai&output=embed"
+            width="90%"
+            height="350">
+    </iframe>
+
+    <!-- LINKS -->
+    <div class="links">
+        <a href="https://en.wikipedia.org/wiki/Chennai" target="_blank">
+            About Chennai
+        </a>
+        |
+        <a href="https://en.wikipedia.org/wiki/Marina_Beach" target="_blank">
+            Marina Beach
+        </a>
+        |
+        <a href="https://www.google.com/maps?q=Chennai" target="_blank">
+            Open Chennai in Google Maps
+        </a>
+    </div>
+
+</body>
+</html>
