@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            border-radius: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        span {
+            color: red;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 align="center">Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+    First Name:
+    <input type="text" id="fname">
+    <span id="fnameError"></span>
+
+    Last Name:
+    <input type="text" id="lname">
+    <span id="lnameError"></span>
+
+    Password:
+    <input type="password" id="password">
+    <span id="passError"></span>
+
+    Email:
+    <input type="text" id="email">
+    <span id="emailError"></span>
+
+    Mobile Number:
+    <input type="text" id="mobile">
+    <span id="mobileError"></span>
+
+    Address:
+    <textarea id="address"></textarea>
+    <span id="addressError"></span>
+
+    <br><br>
+    <button type="submit">Register</button>
+
+</form>
+
+<script>
+function validateForm() {
+
+    let valid = true;
+
+    // Get values
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let address = document.getElementById("address").value;
+
+    // Clear previous errors
+    document.getElementById("fnameError").innerHTML = "";
+    document.getElementById("lnameError").innerHTML = "";
+    document.getElementById("passError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("mobileError").innerHTML = "";
+    document.getElementById("addressError").innerHTML = "";
+
+    // First Name validation
+    let nameRegex = /^[A-Za-z]+$/;
+    if (!fname.match(nameRegex) || fname.length < 6) {
+        document.getElementById("fnameError").innerHTML = "First name must contain only alphabets and at least 6 characters";
+        valid = false;
+    }
+
+    // Last Name validation
+    if (lname === "") {
+        document.getElementById("lnameError").innerHTML = "Last name cannot be empty";
+        valid = false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        document.getElementById("passError").innerHTML = "Password must be at least 6 characters";
+        valid = false;
+    }
+
+    // Email validation
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(emailRegex)) {
+        document.getElementById("emailError").innerHTML = "Invalid email format";
+        valid = false;
+    }
+
+    // Mobile number validation
+    let mobileRegex = /^[0-9]{10}$/;
+    if (!mobile.match(mobileRegex)) {
+        document.getElementById("mobileError").innerHTML = "Mobile number must contain exactly 10 digits";
+        valid = false;
+    }
+
+    // Address validation
+    if (address === "") {
+        document.getElementById("addressError").innerHTML = "Address cannot be empty";
+        valid = false;
+    }
+
+    return valid;
+}
+</script>
+
+</body>
+</html>
